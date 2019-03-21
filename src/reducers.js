@@ -1,10 +1,10 @@
-export default function addPokemon(state = [], action) {
+export default function updatePokedex(state = {}, action) {
     switch (action.type) {
     case 'ADD_POKEMON':
-        return [
+        return {
             ...state,
-            action.pokemon,
-        ]
+            [action.pokemon.name]: action.pokemon,
+        }
       default:
         return state
     }
