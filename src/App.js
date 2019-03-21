@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
-import { createStore, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { connect } from 'react-redux'
+import { addPokemon, getPokemon } from './actions';
 
 import './App.css';
-import reducer from './reducers';
-import { watchGetPokemon } from './sagas';
-import { GET_POKEMON } from './actions';
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  reducer,
-  applyMiddleware(sagaMiddleware)
-);
-sagaMiddleware.run(watchGetPokemon);
-
-const action = type => store.dispatch({type});
 
 class App extends Component {
 
   componentDidMount() {
-    action(GET_POKEMON);
+    this.props.getPokemon();
   };
 
   render() {
@@ -30,4 +19,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { state };
+};
+  
+const mapDispatchtoProps = { getPokemon, addPokemon };
+  
+export default connect(mapStateToProps, mapDispatchtoProps)(App);
+
