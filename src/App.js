@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    this.props.getPokemon();
+    this.props.getPokemon(1);
   };
 
   render() {

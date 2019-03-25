@@ -5,6 +5,6 @@ export function addPokemon(pokemon) {
     return { type: ADD_POKEMON, pokemon }
 };
 
-export function getPokemon() {
-    return { type: GET_POKEMON }
+export function getPokemon(pokemonId) {
+    return { type: GET_POKEMON, pokemonId }
 };
