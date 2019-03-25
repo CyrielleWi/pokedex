@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import './index.css';
 import App from './App';
-import reducer from './reducers';
+import reducer from './reducers/index';
 import { watchGetPokemon } from './sagas';
 import * as serviceWorker from './serviceWorker';
 
