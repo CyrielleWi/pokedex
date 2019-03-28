@@ -3,7 +3,7 @@ export default function updatePokedex(state = {}, action) {
     case 'ADD_POKEMON':
         return {
             ...state,
-            [action.pokemon.name]: action.pokemon,
+            [action.pokemon.id]: action.pokemon,
         }
       default:
         return state
