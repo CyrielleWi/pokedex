@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 export const PokedexDiv = styled.div`
-    width: 25%;
-    border: 1px solid silver;
+    width: 16%;
+    border-color: black;
+    border-style: double;
+    border-width: 6px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 1px grey;
+    padding-bottom: 5px;
     font-family: "Pokemon GB"; 
     font-size: 10px;
 `;
 
 export const Name = styled.p`
     font-size: 15px;
+    margin-bottom: -3px;
 `;

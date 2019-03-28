@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PokedexDiv } from './Pokemon.style';
+import { PokedexDiv, Name } from './Pokemon.style';
 
-const Pokemon = ({ pokemonInfo }) => (
-    <PokedexDiv>
-        {pokemonInfo.name} <br />
+const Pokemon = ({ pokemonInfo }) => {
+
+    if (Object.keys(pokemonInfo).length === 0) {
+        return <PokedexDiv />
+    }
+
+    let name = pokemonInfo.name[0].toUpperCase() + pokemonInfo.name.slice(1);
+
+    return (<PokedexDiv>
+        <Name>{name}</Name> 
         <img src={pokemonInfo.image} alt={pokemonInfo.name} /> <br />
-        First ability : {pokemonInfo.ability}<br />
+        Attack : {pokemonInfo.ability}<br />
         Weight : {pokemonInfo.weight} kg
-    </PokedexDiv>
-)
+    </PokedexDiv>);
+}
 
 export default Pokemon;
 
