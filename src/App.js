@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import Pokemon from './containers/getInfo';
 
 import './App.css';
@@ -22,11 +21,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { state };
-};
-  
-const mapDispatchtoProps = { };
-  
-export default connect(mapStateToProps, mapDispatchtoProps)(App);
+export default App;
 
