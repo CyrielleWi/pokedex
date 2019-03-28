@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addPokemon, getPokemon } from './actions';
 import Pokemon from './containers/getInfo';
 
 import './App.css';
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.getPokemon(1);
-  };
-
   render() {
+
+    const pokedex = []
+
+    for (let i = 1; i < 10; i++) {
+      pokedex.push(<Pokemon id={i} key={i}/>)
+    } 
 
     return (
       <div className="Pokedex">
-        <Pokemon />
+      {pokedex}
       </div>
     );
   }
@@ -25,7 +26,7 @@ const mapStateToProps = (state) => {
   return { state };
 };
   
-const mapDispatchtoProps = { getPokemon, addPokemon };
+const mapDispatchtoProps = { };
   
 export default connect(mapStateToProps, mapDispatchtoProps)(App);
 
