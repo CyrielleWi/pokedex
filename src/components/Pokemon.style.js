@@ -12,4 +12,10 @@ export const PokedexDiv = styled.div`
     padding-bottom: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 1px grey;
+    font-family: "Pokemon GB"; 
+    font-size: 10px;
+`;
+
+export const Name = styled.p`
+    font-size: 15px;
 `;
