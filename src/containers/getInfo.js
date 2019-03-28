@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Pokemon from '../components/Pokemon.js';
 import { getPokemon } from '../actions';
+import { convertPoundsToKilograms } from '../Pokemon.service';
 
 class getInfo extends Component {
     render() {
@@ -19,7 +20,7 @@ class getInfo extends Component {
                 name: pokemon.name,
                 image: pokemon.sprites.front_default,
                 ability: pokemon.abilities[0].ability.name,
-                weight: pokemon.weight,
+                weight: convertPoundsToKilograms(pokemon.weight),
             };
         }
 
