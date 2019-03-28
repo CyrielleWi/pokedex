@@ -6,3 +6,8 @@ export const getFirstAbility = (pokemon) => {
 
     return null;
 };
+
+export const convertPoundsToKilograms = (pounds) => {
+    return Math.round(pounds * 0.45359237);
+
+};

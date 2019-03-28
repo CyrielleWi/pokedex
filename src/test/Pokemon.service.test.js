@@ -1,4 +1,4 @@
-import { getFirstAbility } from '../Pokemon.service';
+import { getFirstAbility, convertPoundsToKilograms } from '../Pokemon.service';
 import React from 'react';
 
 const emptyPokemon = {
@@ -20,5 +20,11 @@ describe('Tests for getFirstAbility', () => {
     })
     it('Should return the first ability', () => {
         expect(getFirstAbility(pokemon)).toEqual("chlorophyll");
+    })
+});
+
+describe('Tests for convertPoundsToKilograms', () => {
+    it('Should return kilograms when given pounds', () => {
+        expect(convertPoundsToKilograms(20)).toEqual(9);
     })
 });
