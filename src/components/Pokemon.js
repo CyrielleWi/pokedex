@@ -14,7 +14,7 @@ export default Pokemon;
 
 Pokemon.propTypes = {
     pokemonInfo: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        name: PropTypes.string,
         image: PropTypes.string,
         ability: PropTypes.string,
         weight: PropTypes.number,

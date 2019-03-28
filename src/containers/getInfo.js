@@ -1,26 +1,44 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Pokemon from '../components/Pokemon.js';
+import { getPokemon } from '../actions';
 
-const getInfo = (pokedex, pokemonName) => {
-    const pokemon = pokedex[pokemonName]
+class getInfo extends Component {
+    render() {
+        const { pokemonId, pokedex, getPokemon } = this.props;
 
-    if (!pokemon) {
-        return {}
-    } 
+        if (!pokedex[pokemonId]) {
+            getPokemon(pokemonId);
+        }
 
-    return {
-        name: pokemonName,
-        image: pokemon.sprites.front_default,
-        ability: pokemon.abilities[0].ability.name,
-        weight: pokemon.weight,
+        const pokemon = pokedex[pokemonId];
+        let pokemonInfo = {};
+
+        if (pokemon) {
+            pokemonInfo = {
+                name: pokemon.name,
+                image: pokemon.sprites.front_default,
+                ability: pokemon.abilities[0].ability.name,
+                weight: pokemon.weight,
+            };
+        }
+
+        return(
+            <Pokemon pokemonInfo={pokemonInfo} />
+        );
     }
 };
 
-const mapStateToProps = (state) => ({
-    pokemonInfo: getInfo(state, 'bulbasaur')
-});
+const mapStateToProps = (state, ownProps) => {
+    const { id } = ownProps;
+
+    return ({
+    pokedex: state,
+    pokemonId: id,
+    });
+};  
+
+const mapDispatchtoProps = { getPokemon };
     
-const mapDispatchtoProps = { };
-    
-export default connect(mapStateToProps, mapDispatchtoProps)(Pokemon);
+export default connect(mapStateToProps, mapDispatchtoProps)(getInfo);
   
