@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { PokedexDiv } from './Pokemon.style';
 
 const Pokemon = ({ pokemonInfo }) => (
-    <div>
-        <h1>{pokemonInfo.name}</h1>
-        <img src={pokemonInfo.image} alt={pokemonInfo.name} />
-        <p>First ability : {pokemonInfo.ability}</p>
-        <p>Weight : {pokemonInfo.weight} kg</p>
-    </div>
+    <PokedexDiv>
+        {pokemonInfo.name} <br />
+        <img src={pokemonInfo.image} alt={pokemonInfo.name} /> <br />
+        First ability : {pokemonInfo.ability}<br />
+        Weight : {pokemonInfo.weight} kg
+    </PokedexDiv>
 )
 
 export default Pokemon;
