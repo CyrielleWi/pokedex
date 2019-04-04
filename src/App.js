@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Pokemon from './containers/getInfo';
+import { Pokedex } from './App.style';
 
 class App extends Component {
 
@@ -12,9 +13,9 @@ class App extends Component {
     } 
 
     return (
-      <div className="Pokedex">
+      <Pokedex>
       {pokedex}
-      </div>
+      </Pokedex>
     );
   }
 }

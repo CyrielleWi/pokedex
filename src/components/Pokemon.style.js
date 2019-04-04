@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PokedexDiv = styled.div`
-    width: 16%;
+    width: 250px;
     border-color: black;
     border-style: double;
     border-width: 6px;
