@@ -1,24 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PokedexDiv, Name } from './Pokemon.style';
+import Avatar from '@material-ui/core/Avatar';
+import { withStyles } from '@material-ui/core/styles';
 
-const Pokemon = ({ pokemonInfo }) => {
+const styles = {
+    div: {
+        width: '250px',
+        borderColor: 'black',
+        borderStyle: 'double',
+        borderWidth: '6px',
+        marginLeft: 'auto',
+        margiRight: 'auto',
+        textAlign: 'center',
+        marginTop: '5px',
+        marginBottom: '10px',
+        paddingBottom: '5px',
+        fontFamily: "Pokemon GB", 
+        fontSize: '10px',
+    },
+    avatar: {
+      margin: 10,
+      width: 80,
+      height: 80,
+    },
+  };
+
+class Pokemon extends React.Component {
+
+    render() {
+
+    const { pokemonInfo, classes } = this.props;
 
     if (Object.keys(pokemonInfo).length === 0) {
-        return <PokedexDiv />
+        return <div />
     }
 
     let name = pokemonInfo.name[0].toUpperCase() + pokemonInfo.name.slice(1);
 
-    return (<PokedexDiv>
-        <Name>{name}</Name> 
-        <img src={pokemonInfo.image} alt={pokemonInfo.name} /> <br />
-        Attack : {pokemonInfo.ability}<br />
-        Weight : {pokemonInfo.weight} kg
-    </PokedexDiv>);
+    return(<Avatar alt={name} src={pokemonInfo.image} className={classes.avatar}/>);
+    }
 }
-
-export default Pokemon;
 
 Pokemon.propTypes = {
     pokemonInfo: PropTypes.shape({
@@ -27,5 +48,6 @@ Pokemon.propTypes = {
         ability: PropTypes.string,
         weight: PropTypes.number,
       }).isRequired
-
   }
+
+  export default withStyles(styles)(Pokemon);
