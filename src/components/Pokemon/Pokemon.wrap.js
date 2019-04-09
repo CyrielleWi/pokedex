@@ -17,17 +17,8 @@ class getInfo extends Component {
         const { pokemonId, pokedex } = this.props;
 
         const pokemon = pokedex[pokemonId];
-        let pokemonInfo = {};
-
-        if (pokemon) {
-            pokemonInfo = {
-                name: pokemon.name,
-                image: pokemon.sprites.front_default,
-                ability: pokemon.abilities[0].ability.name,
-                weight: convertPoundsToKilograms(pokemon.weight),
-            };
-        }
-
+        const pokemonInfo = !pokemon ? {} : pokemon;
+        
         return(
             <Pokemon pokemonInfo={pokemonInfo} />
         );
