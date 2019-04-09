@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
-import Drawer from '@material-ui/core/Drawer';
+import { withRouter } from "react-router";
 
 class Pokemon extends React.Component {
 
-  state = {
-    isOpen: false,
+  goToDetail = () => {
+    const { pokemonInfo } = this.props;
+    this.props.history.push('/detail_page/' + pokemonInfo.id);
   }
-
-  toggleDrawer = (open) => () => {
-    this.setState({
-      isOpen: open,
-    });
-  };
 
   render() {
 
@@ -23,22 +18,7 @@ class Pokemon extends React.Component {
         return <div />
     }
 
-    return(<div><Avatar alt={pokemonInfo.name} src={pokemonInfo.image} className={classes.avatar} onClick={this.toggleDrawer(true)}/>
-      <Drawer open={this.state.isOpen} onClose={this.toggleDrawer(false)}>
-    <div
-      tabIndex={0}
-      role="button"
-      onClick={this.toggleDrawer(false)}
-      onKeyDown={this.toggleDrawer(false)}
-    >
-      <div className={classes.div}>
-      <p className={classes.name}>{pokemonInfo.name}</p>
-      <img src={pokemonInfo.image} alt={pokemonInfo.name} /> 
-      <div>Attack : {pokemonInfo.ability}</div>
-      Weight : {pokemonInfo.weight} kg
-      </div>
-    </div>
-  </Drawer></div>);
+    return(<Avatar alt={pokemonInfo.name} src={pokemonInfo.image} className={classes.avatar} onClick={this.goToDetail}/>);
     }
 }
 
@@ -51,4 +31,4 @@ Pokemon.propTypes = {
       }).isRequired
   }
 
-  export default Pokemon;
+  export default withRouter(Pokemon);

@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={Pokedex}/>
-          <Route path="/detail_page/" component={DetailPage}/>
+          <Route path="/detail_page/:id" component={DetailPage}/>
         </Switch>
       </div>
     );
