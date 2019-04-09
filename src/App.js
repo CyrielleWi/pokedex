@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import Pokemon from './components/Pokemon';
-import { Pokedex } from './App.style';
+import Pokedex from './Pokedex';
+import DetailPage from './components/DetailPage';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
 
   render() {
-
-    const pokedex = []
-
-    for (let i = 1; i < 10; i++) {
-      pokedex.push(<Pokemon id={i} key={i}/>)
-    } 
-
     return (
-      <Pokedex>
-      {pokedex}
-      </Pokedex>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Pokedex}/>
+          <Route path="/detail_page/" component={DetailPage}/>
+        </Switch>
+      </div>
     );
   }
 }
