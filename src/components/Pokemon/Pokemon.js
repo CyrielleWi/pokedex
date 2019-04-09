@@ -23,9 +23,7 @@ class Pokemon extends React.Component {
         return <div />
     }
 
-    let name = pokemonInfo.name[0].toUpperCase() + pokemonInfo.name.slice(1);
-
-    return(<div><Avatar alt={name} src={pokemonInfo.image} className={classes.avatar} onClick={this.toggleDrawer(true)}/>
+    return(<div><Avatar alt={pokemonInfo.name} src={pokemonInfo.image} className={classes.avatar} onClick={this.toggleDrawer(true)}/>
       <Drawer open={this.state.isOpen} onClose={this.toggleDrawer(false)}>
     <div
       tabIndex={0}
@@ -33,12 +31,12 @@ class Pokemon extends React.Component {
       onClick={this.toggleDrawer(false)}
       onKeyDown={this.toggleDrawer(false)}
     >
-      {(<div className={classes.div}>
-      <p className={classes.name}>{name}</p>
-      <img src={pokemonInfo.image} alt={pokemonInfo.name} /> <br />
-      Attack : {pokemonInfo.ability}<br />
+      <div className={classes.div}>
+      <p className={classes.name}>{pokemonInfo.name}</p>
+      <img src={pokemonInfo.image} alt={pokemonInfo.name} /> 
+      <div>Attack : {pokemonInfo.ability}</div>
       Weight : {pokemonInfo.weight} kg
-      </div>)}
+      </div>
     </div>
   </Drawer></div>);
     }

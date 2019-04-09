@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Pokemon from './Pokemon.style';
 import { getPokemon } from '../../actions';
-import { convertPoundsToKilograms } from '../../Pokemon.service';
 
 class getInfo extends Component {
 
@@ -35,9 +34,7 @@ class getInfo extends Component {
     }
 };
 
-const mapStateToProps = (state, ownProps) => {
-    const { id } = ownProps;
-
+const mapStateToProps = (state, { id }) => {
     return ({
     pokedex: state,
     pokemonId: id,

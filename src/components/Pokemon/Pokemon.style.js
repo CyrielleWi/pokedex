@@ -17,6 +17,7 @@ const styles = {
     name: {
       fontSize: '15px',
       marginBottom: '-3px',
+      textTransform: 'capitalize',
     },
     avatar: {
       margin: 10,
