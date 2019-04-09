@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Pokemon from '../components/Pokemon.js';
-import { getPokemon } from '../actions';
-import { convertPoundsToKilograms } from '../Pokemon.service';
+import Pokemon from './Pokemon.style';
+import { getPokemon } from '../../actions';
+import { convertPoundsToKilograms } from '../../Pokemon.service';
 
 class getInfo extends Component {
-    render() {
+
+    componentDidMount = () => {
         const { pokemonId, pokedex, getPokemon } = this.props;
 
         if (!pokedex[pokemonId]) {
             getPokemon(pokemonId);
         }
+    }
+
+    render() {
+        const { pokemonId, pokedex } = this.props;
 
         const pokemon = pokedex[pokemonId];
         let pokemonInfo = {};

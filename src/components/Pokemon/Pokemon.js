@@ -2,30 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
-import { withStyles } from '@material-ui/core/styles';
-
-const styles = {
-    div: {
-        width: '250px',
-        marginLeft: 'auto',
-        margiRight: 'auto',
-        textAlign: 'center',
-        marginTop: '5px',
-        marginBottom: '10px',
-        paddingBottom: '5px',
-        fontFamily: "Pokemon GB", 
-        fontSize: '10px',
-    },
-    name: {
-      fontSize: '15px',
-      marginBottom: '-3px',
-    },
-    avatar: {
-      margin: 10,
-      width: 80,
-      height: 80,
-    },
-  };
 
 class Pokemon extends React.Component {
 
@@ -77,4 +53,4 @@ Pokemon.propTypes = {
       }).isRequired
   }
 
-  export default withStyles(styles)(Pokemon);
+  export default Pokemon;
